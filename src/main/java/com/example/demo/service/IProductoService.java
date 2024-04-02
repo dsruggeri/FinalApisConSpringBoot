@@ -21,4 +21,9 @@ public interface IProductoService {
     //traer un producto específico
     public Producto findProducto(Long id);
     
+    //editar un producto
+    public void editProducto(Long codigoOriginal, 
+                                String nombreNuevo, String marcaNueva,
+                                    Double costoNuevo, Double cantidadNueva);
+    
 }

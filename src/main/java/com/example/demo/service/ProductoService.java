@@ -15,22 +15,38 @@ public class ProductoService implements IProductoService {
 
     @Override
     public List<Producto> getProductos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<Producto> listaProductos = productoRepo.findAll();
+        return listaProductos;      
     }
 
     @Override
     public void saveProducto(Producto producto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        productoRepo.save(producto);
     }
 
     @Override
     public void deleteProducto(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        productoRepo.deleteById(id);
     }
 
     @Override
     public Producto findProducto(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return productoRepo.findById(id).orElse(null);
+    }
+
+    @Override
+    public void editProducto(Long codigoOriginal, String nombreNuevo, 
+                            String marcaNueva, Double costoNuevo, 
+                            Double cantidadNueva) {
+        Producto producto = this.findProducto(codigoOriginal);
+        
+        producto.setNombre_producto(nombreNuevo);
+        producto.setMarca(marcaNueva);
+        producto.setCosto(costoNuevo);
+        producto.setCantidad_disponible(cantidadNueva);
+        
+        this.saveProducto(producto);
+        
     }
     
 }
