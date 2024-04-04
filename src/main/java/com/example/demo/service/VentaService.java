@@ -39,15 +39,7 @@ public class VentaService implements IVentaService {
     }
 
     @Override
-    public void editarVenta(Long codigo_venta, LocalDate fecha_venta, Double total, 
-                            List<Producto> listaProductos, Cliente cliente) {
-        
-        Venta venta = this.findVenta(codigo_venta);
-        
-        venta.setFecha_venta(fecha_venta);
-        venta.setCliente(cliente);
-        venta.setListaProductos(listaProductos);
-        venta.setMonto_total(total);
+    public void editarVenta(Venta venta){
         
         this.saveVenta(venta);
         

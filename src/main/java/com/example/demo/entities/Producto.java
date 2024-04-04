@@ -13,7 +13,7 @@ import lombok.Setter;
 public class Producto {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long codigo_producto;
     
     private String nombre_producto;

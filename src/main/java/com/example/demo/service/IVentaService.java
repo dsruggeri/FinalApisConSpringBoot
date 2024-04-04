@@ -26,8 +26,7 @@ public interface IVentaService {
     public Venta findVenta(Long id);
     
     //editar una venta
-    public void editarVenta(Long codigo_venta, LocalDate fecha_venta, Double total,
-                            List<Producto> listaProductos, Cliente cliente);
+    public void editarVenta(Venta venta);
     
     
 }

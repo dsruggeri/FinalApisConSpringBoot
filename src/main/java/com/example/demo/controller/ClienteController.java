@@ -49,19 +49,11 @@ public class ClienteController {
     
     //editar un cliente
     @PutMapping("/clientes/editar/{idOriginal}")
-    public Cliente editarCliente(@PathVariable Long idOriginal,
-            
-            @RequestParam(required = false, name = "nombre") String nuevoNombre,
-            @RequestParam(required = false, name = "apellido") String nuevoApellido,
-            @RequestParam(required = false, name = "dni") String nuevoDni){
+    public String editarCliente(@RequestBody Cliente cliente){
         
-        clienteService.editCliente(idOriginal, nuevoNombre, 
-                nuevoApellido, nuevoDni);
+        clienteService.editCliente(cliente);
+        return "Cliente editado con éxito";
         
-        Cliente cliente = clienteService.findCliente(idOriginal);
-        
-        
-        return cliente;
     }
     
     
