@@ -2,6 +2,7 @@
 package com.example.demo.service;
 
 
+import com.example.demo.DTO.VentaDTO;
 import com.example.demo.entities.Cliente;
 import com.example.demo.entities.Producto;
 import com.example.demo.entities.Venta;
@@ -27,6 +28,14 @@ public interface IVentaService {
     
     //editar una venta
     public void editarVenta(Venta venta);
+    
+    //productos de X venta
+    public  List<Producto> detalleVenta(Long id);
+    
+    //venta por fecha
+    public String ventaFecha(LocalDate fecha);
+    
+    public VentaDTO mayorVenta();
     
     
 }

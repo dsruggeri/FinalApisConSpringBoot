@@ -3,6 +3,7 @@ package com.example.demo.service;
 
 import com.example.demo.entities.Producto;
 import com.example.demo.repository.IProductoRepository;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,6 +48,18 @@ public class ProductoService implements IProductoService {
         
         this.saveProducto(producto);
         
+    }
+
+    @Override
+    public List<Producto> faltaStock() {
+        List<Producto> listaProductos = this.getProductos();
+        List<Producto> faltaStock = new ArrayList<Producto>();
+        for (Producto prod : listaProductos) {
+            if (prod.getCantidad_disponible()<= 5) {
+                faltaStock.add(prod);
+            }
+        }
+        return faltaStock;
     }
     
 }

@@ -26,4 +26,8 @@ public interface IProductoService {
                                 String nombreNuevo, String marcaNueva,
                                     Double costoNuevo, Double cantidadNueva);
     
+    //traer productos con poco stock
+    public List<Producto> faltaStock();
+            
+    
 }

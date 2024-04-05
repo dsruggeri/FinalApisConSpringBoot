@@ -65,5 +65,12 @@ public class ProductoController {
         return producto;
     }
     
+    //traer los productos con poco stock
+    @GetMapping("/productos/falta_stock")
+    public List<Producto> faltaStock(){
+        return productoService.faltaStock();
+    }
+    
+    
     
 }

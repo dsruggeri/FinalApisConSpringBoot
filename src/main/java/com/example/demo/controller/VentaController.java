@@ -1,6 +1,7 @@
 
 package com.example.demo.controller;
 
+import com.example.demo.DTO.VentaDTO;
 import com.example.demo.entities.Cliente;
 import com.example.demo.entities.Producto;
 import com.example.demo.entities.Venta;
@@ -58,11 +59,27 @@ public class VentaController {
     public Venta editarVenta(@RequestBody Venta venta){
         
         ventaService.editarVenta(venta);
-        
-        
-        
-        
+
         return venta;
+    }
+    
+    //detalle de X venta
+    @GetMapping("/ventas/detalle/{codigo}")
+    public List<Producto> detalleVenta(@PathVariable Long codigo){
+        
+        return ventaService.detalleVenta(codigo);
+    }
+    
+    //ventas por fecha (cantidad y monto total)
+    @GetMapping("/ventas/{fecha}")
+    public String ventasPorFecha(@PathVariable LocalDate fecha){
+        return ventaService.ventaFecha(fecha);
+    }
+    
+    //mayor venta
+    @GetMapping("/ventas/mayor_venta")
+    public VentaDTO mayorVenta(){
+        return ventaService.mayorVenta();
     }
     
     
